@@ -6,7 +6,7 @@
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:48:06 by fsarkoh           #+#    #+#             */
-/*   Updated: 2023/02/16 19:34:58 by fsarkoh          ###   ########.fr       */
+/*   Updated: 2023/02/16 19:40:49 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	update(void *param)
 	trans_scale(fdf);
 	line_w(fdf);
 	fdf_draw_wireframe(fdf);
-	mlx_image_to_window(fdf->handle, fdf->screen, 0, 0);
 }
 
 void	resize(int32_t width, int32_t height, void *param)
