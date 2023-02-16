@@ -6,7 +6,7 @@
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:37:27 by fsarkoh           #+#    #+#             */
-/*   Updated: 2023/02/02 17:18:11 by fsarkoh          ###   ########.fr       */
+/*   Updated: 2023/02/16 19:04:55 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define CLEAR_COLOR 0x000000FF
 # define DEFAULT_COLOR 0xFFFFFFFF
-# define TRANSLATION_SPEED 17;
+# define MOVE_SPEED 17;
 # define ROTATION_SPEED 0.05;
 # define SCALING_SPEED 1;
 

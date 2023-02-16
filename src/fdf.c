@@ -6,7 +6,7 @@
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:37:12 by fsarkoh           #+#    #+#             */
-/*   Updated: 2023/02/03 16:14:05 by fsarkoh          ###   ########.fr       */
+/*   Updated: 2023/02/16 19:33:42 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	fdf->grid = grid;
+	mlx_image_to_window(fdf->handle, fdf->screen, 0, 0);
 	mlx_loop_hook(fdf->handle, &update, fdf);
 	mlx_resize_hook(fdf->handle, &resize, fdf);
 	mlx_loop(fdf->handle);
