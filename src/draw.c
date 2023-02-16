@@ -6,7 +6,7 @@
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 18:17:33 by fsarkoh           #+#    #+#             */
-/*   Updated: 2023/02/02 15:44:14 by fsarkoh          ###   ########.fr       */
+/*   Updated: 2023/02/16 18:40:52 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	fdf_put_pixel(t_fdf *fdf, t_vec2 p, uint32_t color)
 
 	if (p.x < 0 || p.y < 0)
 		return ;
-	if (fdf->screen->width - 1 < p.x || fdf->screen->height - 1 < p.y)
+	if (p.x > fdf->screen->width - 1 || p.y > fdf->screen->height - 1)
 		return ;
 	pixel = (uint32_t *)fdf->screen->pixels
 		+ ((int)p.y * fdf->screen->width + (int)p.x);
@@ -65,7 +65,7 @@ void	fdf_draw_line(t_fdf *fdf, t_line line, uint32_t color,
 		interpol_factor = (float)i / (float)steps;
 		x = line.p0.x + (line.p1.x - line.p0.x) * interpol_factor;
 		y = line.p0.y + (line.p1.y - line.p0.y) * interpol_factor;
-		fdf_draw_point(fdf, vec2(round(x), round(y)), color, width);
+		fdf_draw_point(fdf, vec2(x, y), color, width);
 		i++;
 	}
 }

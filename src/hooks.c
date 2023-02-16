@@ -6,7 +6,7 @@
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:48:06 by fsarkoh           #+#    #+#             */
-/*   Updated: 2023/02/02 17:21:52 by fsarkoh          ###   ########.fr       */
+/*   Updated: 2023/02/16 18:47:53 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	resize(int32_t width, int32_t height, void *param)
 static void	trans_scale(t_fdf *fdf)
 {
 	if (mlx_is_key_down(fdf->handle, MLX_KEY_A))
-		fdf->grid->transform.position.x += TRANSLATION_SPEED;
+		fdf->grid->transform.position.x += MOVE_SPEED
 	if (mlx_is_key_down(fdf->handle, MLX_KEY_D))
-		fdf->grid->transform.position.x -= TRANSLATION_SPEED;
+		fdf->grid->transform.position.x -= MOVE_SPEED;
 	if (mlx_is_key_down(fdf->handle, MLX_KEY_W))
-		fdf->grid->transform.position.y += TRANSLATION_SPEED;
+		fdf->grid->transform.position.y += MOVE_SPEED;
 	if (mlx_is_key_down(fdf->handle, MLX_KEY_S))
-		fdf->grid->transform.position.y -= TRANSLATION_SPEED;
+		fdf->grid->transform.position.y -= MOVE_SPEED;
 	if (mlx_is_key_down(fdf->handle, MLX_KEY_EQUAL))
 	{
 		fdf->grid->transform.scale.x += SCALING_SPEED;

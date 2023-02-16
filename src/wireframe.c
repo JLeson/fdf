@@ -6,7 +6,7 @@
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:11:32 by fsarkoh           #+#    #+#             */
-/*   Updated: 2023/01/31 18:42:30 by fsarkoh          ###   ########.fr       */
+/*   Updated: 2023/02/16 18:48:31 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,15 @@ static t_vertex	transform_vertex(t_fdf *fdf, int idx)
 	return (vertex);
 }
 
+static int	is_off_screen(t_fdf *fdf, t_vertex vertex)
+{	
+	if (vertex.position.x < 0 || vertex.position.x > fdf->screen->width)
+		return (1);
+	if (vertex.position.y < 0 || vertex.position.y > fdf->screen->height)
+		return (1);
+	return (0);
+}
+
 static void	draw_line(t_fdf *fdf, int idx, int x, int z)
 {
 	t_line		drawnline;
@@ -43,6 +52,8 @@ static void	draw_line(t_fdf *fdf, int idx, int x, int z)
 		return ;
 	start = transform_vertex(fdf, idx);
 	end = transform_vertex(fdf, vidx);
+	if (is_off_screen(fdf, start) && is_off_screen(fdf, end))
+		return ;
 	drawnline = line(projectpoint(fdf->projection, start.position),
 			projectpoint(fdf->projection, end.position));
 	fdf_draw_gradient_line(fdf, drawnline, gradient(start.color, end.color),
